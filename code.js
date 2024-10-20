@@ -26,34 +26,34 @@ let parks = [
     }
 ];
 
-// 1. Change the name of "Riverside Park" to "Riverside Greenspace"
+// 1. Using array and object manipulation, change the name of "Riverside Park" to "Riverside Greenspace" for the relevant park in the parks array.
 parks.find(park => park.name === "Riverside Park").name = "Riverside Greenspace";
 
-// 2. Change the name of the tree species "Maple" to "Sugar Maple"
+// 2. Utilize array and object manipulation to change the name of the tree species "Maple" to "Sugar Maple" for the relevant tree located in "Central Park" within the parks array.
 parks[0].trees.find(tree => tree.species === "Maple").species = "Sugar Maple";
 
-// 3. Add a new tree to "Central Park"
+// 3. Use array and object manipulation to add a new tree to the "Central Park" object within the parks array and this new tree should have these attributes: species: "Birch", age: 7, health: "Good", and height: 18. 
 parks[0].trees.push({ species: "Birch", age: 7, health: "Good", height: 18 });
 
-// 4. Retrieve a list of all tree species located in "Central Park"
+// 4. Using array and object manipulation, retrieve a list of all tree species located in "Central Park". Store the list (as an array) in a variable named centralParkTrees.
 let centralParkTrees = parks[0].trees.map(tree => tree.species);
 
-// 5. Calculate the average age of all the trees in the parks array
+// 5. Use code to calculate and store the average age of all the trees in the parks array into a variable named averageTreeAge.
 let totalAge = parks.reduce((sum, park) => sum + park.trees.reduce((sum, tree) => sum + tree.age, 0), 0);
 let totalTrees = parks.reduce((sum, park) => sum + park.trees.length, 0);
 let averageTreeAge = totalAge / totalTrees;
 
-// 6. Determine which tree is the tallest among all the trees in the parks array
+// 6. Use code to determine which tree is the tallest among all the trees in the parks array. Store the tallest tree in a variable named tallestTree.
 let tallestTree = parks.flatMap(park => park.trees).reduce((tallest, tree) => tree.height > tallest.height ? tree : tallest);
 
-// 7. Remove the facility "playground" from "Central Park"
+// 7. Using array and object manipulation, remove the facility "playground" from the facilities array in "Central Park" which is located in the parks array.
 parks[0].facilities = parks[0].facilities.filter(facility => facility !== "playground");
 
-// 8. Convert the parks array into a JSON Object
+// 8. Using code, convert the parks array into a JSON Object and store it into a variable called parksJSON.
 let parksJSON = JSON.stringify(parks);
 
-// 9. Display the name and facilities of the first item in the parks array
+// 9. Using console.log, display the name and facilities of the first item in the parks array.
 console.log(parks[0].name, parks[0].facilities);
 
-// 10. Display the species of the third item in the parks array
+// 10. Using console.log, display the species of the third item in the parks array.
 console.log(parks[2].trees[0].species);
